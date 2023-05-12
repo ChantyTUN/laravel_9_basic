@@ -7,6 +7,9 @@
     <title>Contact Page</title>
 </head>
 <body>
-    <h6>Welcome page Contact </h6>
+    <h1>Welcome page Contact </h1>
+    <div class="row">
+        <a href="{{ url('about-us') }}">About Us</a>
+    </div>
 </body>
 </html>
