@@ -9,7 +9,7 @@
 <body>
     <h1>Welcome page Contact </h1>
     <div class="row">
-        <a href="{{ url('about-us') }}">About Us</a>
+        <a href="{{ route('page.about') }}">About Us</a>
     </div>
 </body>
 </html>

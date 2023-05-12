@@ -18,8 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/about-us',[DemoController::class, 'index']);
-Route::get('/contact',[DemoController::class, 'contact']);
+// Route::get('/about-us',[DemoController::class, 'index']);
+// Route::get('/contact',[DemoController::class, 'contact']);
+
+Route::controller(DemoController::class)->group(function (){
+    Route::get('/about-usasdasdasd','index')->name('page.about');
+    Route::get('/contact','contact')->name('page.contact');
+});
 
 // Route::get('/about-us', function () {
 //    return view('about-us');

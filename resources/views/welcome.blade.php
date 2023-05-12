@@ -46,8 +46,8 @@
                 </div>
 
                 <div class="row">
-                        <a href="{{ url('about-us') }}">About Us</a>
-                        <a href="{{ url('contact') }}">Contact</a>
+                        <a href="{{ route('page.about') }}">About Us</a>
+                        <a href="{{ route('page.contact') }}">Contact</a>
                 </div>
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
