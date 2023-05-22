@@ -32,7 +32,7 @@
 
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control p_input" required autofocus autocomplete="name" placeholder="Name" >
+                            <input type="text" name="name" class="form-control p_input" required autofocus value="{{ old('name') }}" autocomplete="name" placeholder="Name" >
                             @if($errors->has('name'))
                                 <span class="text-danger">
                                     {{ $errors->first('name') }}
@@ -51,7 +51,7 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control p_input" required autocomplete="email"  placeholder="Email" >
+                            <input type="email" name="email" class="form-control p_input" required value="{{ old('email') }}" autocomplete="email"  placeholder="Email" >
                             @if($errors->has('email'))
                                 <span class="text-danger">
                                     {{ $errors->first('email') }}
