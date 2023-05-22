@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Demo\DemoController;
+use App\Http\Controllers\Backend\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +34,13 @@ Route::controller(DemoController::class)->group(function (){
     Route::get('/about','index')->name('page.about');
     Route::get('/contact','contact')->name('page.contact');
 });
+
+
+Route::controller(AdminController::class)->group(function (){
+    Route::get('/admin/logout','destroy')->name('admin.logout');
+});
+
+
 
 
 require __DIR__.'/auth.php';
