@@ -23,12 +23,17 @@
                 <div class="d-flex d-md-block d-xl-flex justify-content-between">
                     <h6 class="text-muted preview-subject"><strong>Email</strong>: {{ @$viewAdminData->email }}</h6> <br>  
                 </div>
-                    <a href="#" class="btn btn-info btn-icon-text"> 
-                        Edit <i class="mdi mdi-file-check btn-icon-append"></i>
-                    </a>
                 </div>
         
             </div>
+            </div>
+            <!-- button Edit -->
+            <div class="row pt-3">
+                <div class="col-12">
+                <a href="{{ route('admin.edit.profile') }}" class="btn btn-outline-secondary btn-icon-text"> 
+                    Edit <i class="mdi mdi-file-check btn-icon-append"></i>
+                </a>
+                </div>
             </div>
 
         </div>
