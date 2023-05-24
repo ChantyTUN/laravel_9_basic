@@ -38,6 +38,7 @@ Route::controller(DemoController::class)->group(function (){
 
 Route::controller(AdminController::class)->group(function (){
     Route::get('/admin/logout','destroy')->name('admin.logout');
+    Route::get('/admin/view-profile','viewProfile')->name('admin.view.profile');
 });
 
 

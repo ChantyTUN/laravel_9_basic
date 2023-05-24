@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use App\Providers\RouteServiceProvider;
+use App\Http\Requests\Auth\LoginRequest;
 
 class AdminController extends Controller
 {
@@ -23,5 +24,13 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/login');
+    }
+
+    // view profile 
+    public function viewProfile(){
+        $id = Auth::user()->id;
+        $viewAdminData = User::find($id);
+        // dd($viewAdminData);
+        return view('admin.view_profile', compact("viewAdminData"));
     }
 }
