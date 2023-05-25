@@ -8,7 +8,8 @@
                   <div class="card-body">
                     <h4 class="card-title">Profile Edit</h4>
                     <p class="card-description">Make sure before update </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" action="{{ route('admin.update.profile') }}" enctype="multipart/form-data">
+                        @csrf
                             <div class="form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" id="name" name="name" value="{{ @$viewAdminData->name }}" required placeholder="Name">

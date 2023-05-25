@@ -40,6 +40,7 @@ Route::controller(AdminController::class)->group(function (){
     Route::get('/admin/logout','destroy')->name('admin.logout');
     Route::get('/admin/view-profile','viewProfile')->name('admin.view.profile');
     Route::get('/admin/edit-profile','editProfile')->name('admin.edit.profile');
+    Route::post('/admin/update-profile','updateProfile')->name('admin.update.profile');
 });
 
 
