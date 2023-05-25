@@ -31,7 +31,9 @@
                             <div class="form-group">
                                 <div class="profile-pic">
                                     <div class="count-indicator">
-                                        <img class="img-ms rounded-circle " id="showImageProfile" src="{{ asset('backend/assets/images/faces/face15.jpg') }}" alt="">
+                                        <img class="img-ms rounded-circle " id="showImageProfile" src="
+                                             {{ (!empty(@$viewAdminData->profile_image)) ? asset('backend/upload/admin_images/'.@$viewAdminData->profile_image) : asset('backend/upload/no_image.png') }}
+                                        " width="80px;" height="80px;" alt="">
                                     <span class="count bg-success"></span>
                                     </div>
                                 </div>

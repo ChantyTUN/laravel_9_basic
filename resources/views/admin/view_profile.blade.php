@@ -10,7 +10,9 @@
         <div class="preview-list">
             <div class="preview-item border-bottom">
             <div class="preview-thumbnail">
-                <img src="{{ asset('backend/assets/images/faces/face6.jpg') }}" alt="image" class="rounded-circle">
+                <img src="
+                    {{ (!empty(@$viewAdminData->profile_image)) ? asset('backend/upload/admin_images/'.@$viewAdminData->profile_image) : asset('backend/upload/no_image.png') }}
+                " alt="image" class="rounded-circle">
             </div>
             <div class="preview-item-content d-flex flex-grow">
                 <div class="flex-grow">

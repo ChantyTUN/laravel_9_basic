@@ -36,11 +36,16 @@
             <p class="p-3 mb-0 text-center">4 new messages</p>
         </div>
         </li>
-       
+@php 
+    $id = Auth::user()->id;
+    $viewAdminData = App\Models\User::find($id);
+@endphp 
         <li class="nav-item dropdown">
         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
             <div class="navbar-profile">
-            <img class="img-xs rounded-circle" src="{{ asset('backend/assets/images/faces/face15.jpg') }}" alt="">
+            <img class="img-xs rounded-circle" src="
+                    {{ (!empty(@$viewAdminData->profile_image)) ? asset('backend/upload/admin_images/'.@$viewAdminData->profile_image) : asset('backend/upload/no_image.png') }}
+            " alt="">
             <p class="mb-0 d-none d-sm-block navbar-profile-name">{{ Auth::user()->name }}</p>
             <i class="mdi mdi-menu-down d-none d-sm-block"></i>
             </div>

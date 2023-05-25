@@ -1,3 +1,7 @@
+@php 
+    $id = Auth::user()->id;
+    $viewAdminData = App\Models\User::find($id);
+@endphp 
 <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
     <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('backend/assets/images/logo.svg') }}" alt="logo" /></a>
     <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="{{ asset('backend/assets/images/logo-mini.svg') }}" alt="logo" /></a>
@@ -7,7 +11,9 @@
     <div class="profile-desc">
         <div class="profile-pic">
         <div class="count-indicator">
-            <img class="img-xs rounded-circle " src="{{ asset('backend/assets/images/faces/face15.jpg') }}" alt="">
+            <img class="img-xs rounded-circle " src="
+                {{ (!empty(@$viewAdminData->profile_image)) ? asset('backend/upload/admin_images/'.@$viewAdminData->profile_image) : asset('backend/upload/no_image.png') }}
+            " alt="">
             <span class="count bg-success"></span>
         </div>
         <div class="profile-name">
