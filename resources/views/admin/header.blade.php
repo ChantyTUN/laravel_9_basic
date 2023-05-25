@@ -63,14 +63,14 @@
                     <p class="preview-subject mb-1">Profile</p>
                 </div>
             </a>
-            <a class="dropdown-item preview-item">
+            <a href="{{ route('admin.change.password.profile') }}" class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
-                    <i class="mdi mdi-settings text-success"></i>
+                    <i class="mdi mdi-lock-plus text-success"></i>
                     </div>
                 </div>
                 <div class="preview-item-content">
-                    <p class="preview-subject mb-1">Settings</p>
+                    <p class="preview-subject mb-1">Change Password</p>
                 </div>
             </a>
             <div class="dropdown-divider"></div>

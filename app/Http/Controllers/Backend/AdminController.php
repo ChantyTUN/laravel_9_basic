@@ -66,4 +66,9 @@ class AdminController extends Controller
         $data->save();
         return redirect()->route('admin.view.profile');
     }
+
+    // get edit password 
+    public function changePasswordProfile(){
+        return view('admin.change_password_profile');
+    }
 }
