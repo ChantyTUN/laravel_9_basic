@@ -8,7 +8,10 @@
                   <div class="card-body">
                     <h4 class="card-title">Profile Edit Password</h4>
                     <p class="card-description">Make sure before update </p>
-                    <form class="forms-sample" method="post" action="{{ route('admin.update.profile') }}" enctype="multipart/form-data">
+
+                    @include('message.message')
+                    
+                    <form class="forms-sample" method="post" action="{{ route('admin.update.password.profile') }}" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
                                 <label for="oldpassword">Old Password</label>
