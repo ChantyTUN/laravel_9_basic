@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.png') }}" />
+      <!-- Toster CSS  -->
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   </head>
   <body>
     <div class="container-scroller">
@@ -86,5 +88,49 @@
     <script src="{{ asset('backend/assets/js/settings.js') }}"></script>
     <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
     <!-- endinject -->
+     <!-- Toster JS  -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+    @if(Session::has('message'))
+        var dataType = "{{ Session::get('alert-type','info') }}";
+        switch(dataType){
+          case 'info':
+          toastr.info("{{ Session::get('message') }}");
+          break;
+
+          case 'success':
+          toastr.success("{{ Session::get('message') }}");
+          break;
+          
+          case 'warning':
+          toastr.warning("{{ Session::get('message') }}");
+          break;
+
+          case 'error':
+          toastr.error("{{ Session::get('message') }}");
+          break;
+        }
+    @endif
+    
+    </script>
+
+    <style>
+      .toast-info{
+        background-color: #1c7de6 !important;
+      }
+
+      .toast-success{
+        background-color: #5700fa !important;
+      }
+
+      .toast-warning{
+        background-color: #ebdf00 !important;
+      }
+
+      .toast-error{
+        background-color: #eb0000 !important;
+      }
+    
+    </style>
   </body>
 </html>
