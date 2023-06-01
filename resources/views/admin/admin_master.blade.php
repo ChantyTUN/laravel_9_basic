@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
+    <!-- Toster CSS  -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -66,10 +68,54 @@
     <script src="{{ asset('backend/assets/js/hoverable-collapse.js') }}"></script>
     <script src="{{ asset('backend/assets/js/misc.js') }}"></script>
     <script src="{{ asset('backend/assets/js/settings.js') }}"></script>
-    <script src="{{ asset('backend/}assets/js/todolist.js') }"></script>
+    <script src="{{ asset('backend/assets/js/todolist.js') }}"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
+    <script src="{{ asset('backend/assets/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
+    <!-- Toster JS  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+    @if(Session::has('message'))
+        var dataType = "{{ Session::get('alert-type','info') }}";
+        switch(dataType){
+          case 'info':
+          toastr.info("{{ Session::get('message') }}");
+          break;
+
+          case 'success':
+          toastr.success("{{ Session::get('message') }}");
+          break;
+          
+          case 'warning':
+          toastr.warning("{{ Session::get('message') }}");
+          break;
+
+          case 'error':
+          toastr.error("{{ Session::get('message') }}");
+          break;
+        }
+    @endif
+    
+    </script>
+
+    <style>
+      .toast-info{
+        background-color: #1c7de6 !important;
+      }
+
+      .toast-success{
+        background-color: #5700fa !important;
+      }
+
+      .toast-warning{
+        background-color: #ebdf00 !important;
+      }
+
+      .toast-error{
+        background-color: #eb0000 !important;
+      }
+    
+    </style>
   </body>
 </html>

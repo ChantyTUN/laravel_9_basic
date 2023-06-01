@@ -65,7 +65,14 @@ class AdminController extends Controller
         }
         // save to table
         $data->save();
-        return redirect()->route('admin.view.profile');
+
+        // message 
+        $notification = array(
+            'message' => 'Data has been save!',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('admin.view.profile')->with($notification);
     }
 
     // get edit password 
@@ -89,7 +96,14 @@ class AdminController extends Controller
             // update password
             $user->password = bcrypt($request->newpassword); // 12345678 // sdfahdsfa234
             $user->save();
-            return redirect()->back();
+
+            // message 
+            $notification = array(
+                'message' => 'Data has been save!',
+                'alert-type' => 'info'
+            );
+
+            return redirect()->back()->with($notification);
         }else{
             return redirect()->back();
         }
