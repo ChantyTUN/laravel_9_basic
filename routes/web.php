@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\AdminHomeInformationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,10 @@ Route::controller(AdminController::class)->group(function (){
     Route::get('/admin/change-password-profile','changePasswordProfile')->name('admin.change.password.profile');
     Route::post('/admin/update-password-profile','updatePasswordProfile')->name('admin.update.password.profile');
 
+});
+
+Route::controller(AdminHomeInformationController::class)->group(function (){
+    Route::get('/admin/home-page-information','index')->name('admin.home.page.information');
 });
 
 

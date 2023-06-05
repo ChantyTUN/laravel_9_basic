@@ -88,4 +88,13 @@
         </ul>
     </div>
     </li>
+
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('admin.home.page.information')}}">
+            <span class="menu-icon">
+            <i class="mdi mdi-certificate"></i>
+            </span>
+            <span class="menu-title">Home Page</span>
+        </a>
+    </li>
 </ul>
