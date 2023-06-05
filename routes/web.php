@@ -49,6 +49,7 @@ Route::controller(AdminController::class)->group(function (){
 
 Route::controller(AdminHomeInformationController::class)->group(function (){
     Route::get('/admin/home-page-information','index')->name('admin.home.page.information');
+    Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
 });
 
 
