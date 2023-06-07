@@ -14,7 +14,7 @@
                 <input type="text" class="form-control" value="{{ @$homepage->short_title }}" id="short_title" name="short_title" placeholder="Short Title">
             </div>
             <div class="form-group">
-                <label for="long_title">Short Title</label>
+                <label for="long_title">Long Title</label>
                 <input type="text" class="form-control" value="{{ @$homepage->long_title }}" id="long_title" name="long_title" placeholder="Long Title">
             </div>
             <div class="form-group">
