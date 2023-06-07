@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\AdminHomeInformationController;
 /*
 |--------------------------------------------------------------------------
@@ -46,10 +47,16 @@ Route::controller(AdminController::class)->group(function (){
     Route::post('/admin/update-password-profile','updatePasswordProfile')->name('admin.update.password.profile');
 
 });
-
+// Backend Home Page
 Route::controller(AdminHomeInformationController::class)->group(function (){
     Route::get('/admin/home-page-information','index')->name('admin.home.page.information');
     Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
+});
+
+// Backend Footer 
+Route::controller(FooterController::class)->group(function (){
+    Route::get('/admin/footer','index')->name('admin.footer');
+    Route::post('/admin/store/footer','store')->name('admin.store.footer');
 });
 
 
