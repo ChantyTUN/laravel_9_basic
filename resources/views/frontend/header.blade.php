@@ -1,3 +1,7 @@
+<!-- php block  -->
+@php 
+    $footerSocial = App\Models\Footer::find(1);
+@endphp 
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
@@ -35,10 +39,10 @@
       </nav><!-- .navbar -->
 
       <div class="header-social-links">
-        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="{{ @$footerSocial->twitter }}" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="{{ @$footerSocial->facebook }}" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="{{ @$footerSocial->instragram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="{{ @$footerSocial->inkedin }}" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
