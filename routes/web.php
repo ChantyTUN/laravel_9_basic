@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\FooterController;
+use App\Http\Controllers\Backend\AdminBlogImageController;
 use App\Http\Controllers\Backend\AdminHomeInformationController;
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,12 @@ Route::controller(AdminController::class)->group(function (){
 Route::controller(AdminHomeInformationController::class)->group(function (){
     Route::get('/admin/home-page-information','index')->name('admin.home.page.information');
     Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
+});
+
+// Backend Blog Page
+Route::controller(AdminBlogImageController::class)->group(function (){
+    Route::get('/admin/blog-images','index')->name('admin.blog.image');
+    // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
 });
 
 // Backend Footer 
