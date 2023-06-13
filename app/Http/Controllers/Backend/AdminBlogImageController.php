@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use Auth;
+use Image;
+use App\Models\BlogImage;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminBlogImageController extends Controller
 {
@@ -13,5 +17,31 @@ class AdminBlogImageController extends Controller
 
     public function create(){
         return view('admin.blog.create');
+    }
+
+    public function store(Request $request){
+
+        $dataObj = new BlogImage;
+        $dataObj->title = @$request->title;
+        $dataObj->slug = Str::slug(@$request->title, "-");
+        $dataObj->status = 1;
+        $dataObj->created_by = Auth::id();
+ 
+        if($request->file('image')){
+            $get_image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$get_image->getClientOriginalExtension(); // 1221343.jpg
+
+            Image::make($get_image)->resize(1440,1290)->save('upload/blog/'.$name_gen);
+            $save_url = 'upload/blog/'.$name_gen;
+            $dataObj->image = $save_url;
+        }
+
+        $dataObj->save();
+          // message 
+        $notification = array(
+            'message' => 'Data has been save!',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.blog.image.create')->with($notification);
     }
 }

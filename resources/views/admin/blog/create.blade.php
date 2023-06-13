@@ -7,7 +7,7 @@
     <div class="card">
         <div class="card-body">
         <h4 class="card-title">Create Blog Image</h4>
-        <form class="forms-sample" method="post" action="#" 
+        <form class="forms-sample" method="post" action="{{ route('admin.blog.image.store') }}" 
                     enctype="multipart/form-data">
         @csrf
             <div class="form-group">
