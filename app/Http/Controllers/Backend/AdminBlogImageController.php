@@ -45,4 +45,43 @@ class AdminBlogImageController extends Controller
         );
         return redirect()->route('admin.blog.image.create')->with($notification);
     }
+
+    public function editBlogImage($id){
+        // $id = Auth::user()->id;
+        // $viewAdminData = User::find($id);
+        $data = BlogImage::find($id);
+        // dd($data);
+        return view('admin.blog.edit', compact("data"));
+    }
+
+    public function updateBlogImage(Request $request){
+
+        $id_blog = $request->id;
+
+        $data = BlogImage::find($id_blog);
+
+
+        $data->title = $request->title;
+
+        
+        // Have been image
+        if($request->file('image')){
+            
+            $file = $request->file('image');
+
+            $get_image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$get_image->getClientOriginalExtension(); // 1221343.jpg
+
+            Image::make($get_image)->resize(1440,1290)->save('upload/blog/'.$name_gen);
+            $save_url = 'upload/blog/'.$name_gen;
+            $data['image'] = $save_url;
+        }
+        $data->save();
+        $notification = array(
+            'message' => 'Data has been update!',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.blog.image')->with($notification);
+
+    }
 }

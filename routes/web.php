@@ -59,6 +59,9 @@ Route::controller(AdminBlogImageController::class)->group(function (){
     Route::get('/admin/blog-images','index')->name('admin.blog.image');
     Route::get('/admin/blog-images-create','create')->name('admin.blog.image.create');
     Route::post('/admin/blog-images-store','store')->name('admin.blog.image.store');
+
+    Route::get('/admin/blog-images-edit/{id}','editBlogImage')->name('admin.blog.edit');
+    Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
    
     // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
 });
