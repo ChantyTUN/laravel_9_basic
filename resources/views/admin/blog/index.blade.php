@@ -23,16 +23,15 @@
                     <i class="input-helper"></i></label>
                     </div>
                 </th>
-                <th> Client Name </th>
-                <th> Order No </th>
-                <th> Product Cost </th>
-                <th> Project </th>
-                <th> Payment Mode </th>
-                <th> Start Date </th>
-                <th> Payment Status </th>
+                <th></th>
+                <th> Title</th>
+                <th> Status </th>
+                <th> Action </th>
                 </tr>
             </thead>
             <tbody>
+              
+                @foreach($data as $item)
                 <tr>
                     <td>
                         <div class="form-check form-check-muted m-0">
@@ -42,23 +41,25 @@
                         </div>
                     </td>
                     <td>
-                        <img src="{{ asset('backend/assets/images/faces/face1.jpg') }}" alt="image">
-                        <span class="pl-2">Henry Klein</span>
+                        <img src="{{ asset(@$item->image) }}" alt="image">
                     </td>
-                    <td> 02312 </td>
-                    <td> $14,500 </td>
-                    <td> Dashboard </td>
-                    <td> Credit card </td>
-                    <td> 04 Dec 2019 </td>
+                    <td> {{ @$item->title }} </td>
+                    <td> 
+                        <div class="badge badge-outline-success">Active</div>
+                    </td>
                     <td>
-                        <div class="badge badge-outline-success">Approved</div>
+                      
                     </td>
                 </tr>
+                @endforeach
+               
             </tbody>
+            {{ $data->links() }}
             </table>
         </div>
         </div>
     </div>
     </div>
 </div>
+
 @endsection

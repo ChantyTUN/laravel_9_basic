@@ -12,7 +12,8 @@ use App\Http\Controllers\Controller;
 class AdminBlogImageController extends Controller
 {
     public function index(){
-        return view('admin.blog.index');
+        $data = BlogImage::where('status',1)->paginate(15);
+        return view('admin.blog.index',compact('data'));
     }
 
     public function create(){
