@@ -45,7 +45,16 @@
                     </td>
                     <td> {{ @$item->title }} </td>
                     <td> 
-                        <div class="badge badge-outline-success">Active</div>
+                    @if(@$item->status == 1)
+                        <div class="badge badge-outline-success">
+                            <a href="{{ route('admin.blog.image.inactive', @$item->id) }}">Active</a>
+                        </div>
+                    @else 
+                        <div class="badge badge-outline-danger">
+                            <a href="{{ route('admin.blog.image.active', @$item->id) }}">Inactive</a>
+                        </div>
+                    @endif
+                       
                     </td>
                     <td>
                       

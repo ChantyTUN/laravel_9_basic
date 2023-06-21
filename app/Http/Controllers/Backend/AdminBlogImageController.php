@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class AdminBlogImageController extends Controller
 {
     public function index(){
-        $data = BlogImage::where('status',1)->paginate(15);
+        $data = BlogImage::paginate(15);
         return view('admin.blog.index',compact('data'));
     }
 
@@ -83,5 +83,28 @@ class AdminBlogImageController extends Controller
         );
         return redirect()->route('admin.blog.image')->with($notification);
 
+    }
+
+    // Inactive
+    public function blogInactive($id){
+        BlogImage::findOrFail($id)->update([
+            'status' => 0
+        ]);
+        $notification = array(
+            'message' => 'Data has been disabled!',
+            'alert-type' => 'warning'
+        );
+        return redirect()->route('admin.blog.image')->with($notification);
+    }
+     // Active
+     public function blogactive($id){
+        BlogImage::findOrFail($id)->update([
+            'status' => 1
+        ]);
+        $notification = array(
+            'message' => 'Data has been Active!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('admin.blog.image')->with($notification);
     }
 }
