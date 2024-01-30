@@ -58,11 +58,11 @@
                     </td>
                     <td>
                       
-                    <a href="{{ route('admin.blog.edit',@@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
+                    <a href="{{ route('admin.blog.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
                         Edit <i class="mdi mdi-file-check btn-icon-append"></i>
                     </a>
 
-                    <a href="{{ route('admin.blog.edit',@@$item->id) }}" class="btn btn-outline-primary btn-icon-text"> 
+                    <a href="{{ route('admin.blog.detail',@$item->id) }}" class="btn btn-outline-primary btn-icon-text"> 
                         View <i class="mdi mdi-eye-check btn-icon-append"></i>
                     </a>
 

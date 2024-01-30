@@ -6,6 +6,7 @@ use Auth;
 use Image;
 use App\Models\BlogImage;
 use Illuminate\Support\Str;
+use App\Models\BlogImageDes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -62,6 +63,53 @@ class AdminBlogImageController extends Controller
 
 
         $data->title = $request->title;
+
+        
+        // Have been image
+        if($request->file('image')){
+            
+            $file = $request->file('image');
+
+            $get_image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$get_image->getClientOriginalExtension(); // 1221343.jpg
+
+            Image::make($get_image)->resize(1440,1290)->save('upload/blog/'.$name_gen);
+            $save_url = 'upload/blog/'.$name_gen;
+            $data['image'] = $save_url;
+        }
+        $data->save();
+        $notification = array(
+            'message' => 'Data has been update!',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.blog.image')->with($notification);
+
+    }
+
+    public function editBlogImageDetail($id){
+        $data = BlogImageDes::where('bloge_image_id',$id)->first();
+        // dd($data);
+        if($data != null){
+            // view data
+        }else{
+            $dataObj = new BlogImageDes;
+            $dataObj->bloge_image_id = @$id;
+            $dataObj->created_by = Auth::id();
+            $dataObj->save();
+        }
+
+        return view('admin.blog.detail.edit', compact("data"));
+    }
+
+    public function updateBlogImageDetail(Request $request){
+
+        $id_blog_des = $request->bloge_image_id;
+
+        $data = BlogImageDes::find($id_blog_des);
+
+
+        $data->title = $request->title;
+        $data->dec = $request->dec;
 
         
         // Have been image

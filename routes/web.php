@@ -67,6 +67,9 @@ Route::controller(AdminBlogImageController::class)->group(function (){
     Route::get('/admin/blog-images-active/{id}','blogactive')->name('admin.blog.image.active');
 
     
+    Route::get('/admin/blog-images-detail-edit/{id}','editBlogImageDetail')->name('admin.blog.detail');
+    Route::post('/admin/blog-images--detail-update','updateBlogImageDetail')->name('admin.update.blog.detail');
+
    
     // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
 });
