@@ -23,6 +23,7 @@
                                 <textarea class="form-control" name="dec" id="dec" cols="30" rows="10">
                                     {!! @$data->dec !!}
                                 </textarea>
+                                
                             </div>
                 
                             <div class="form-group">
@@ -49,6 +50,11 @@
                 </div>
               </div>
 <!-- Click Change Image  -->
+<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('dec');
+</script>
+
 <script type="text/javascript">
     $(document).ready(function(){
         $("#image_blog").change(function(e){
