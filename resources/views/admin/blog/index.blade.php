@@ -11,6 +11,12 @@
                     <i class="mdi mdi-file-check btn-icon-prepend"></i> Create New Blog Image 
             </a>
             </div>
+            <div class="col-4">
+                <form action="{{ route('admin.blog.image') }}" method="get">
+                    <input type="text" name="search" id="search" value="{{ @request('search') }}" class="form-control">
+                    <button type="submit" id="search" class="btn btn-primary mr-2"> Search</button>
+                </form>
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table">

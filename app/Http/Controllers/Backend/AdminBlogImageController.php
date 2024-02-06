@@ -12,8 +12,17 @@ use App\Http\Controllers\Controller;
 
 class AdminBlogImageController extends Controller
 {
-    public function index(){
-        $data = BlogImage::paginate(15);
+    public function index(Request $request){
+
+        // $data = BlogImage::paginate(15);
+        $query = BlogImage::query();
+        // if have search value
+        if($request->search){
+            $queryString = $request->search;
+            $query->where('title', 'LIKE', "%$queryString%");
+        }
+        $data = $query->orderBy('id','desc')->paginate(15);
+        // dd($data);
         return view('admin.blog.index',compact('data'));
     }
 
