@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\FooterController;
+use App\Http\Controllers\Frontend\FrontendHomeController;
 use App\Http\Controllers\Backend\AdminBlogImageController;
 use App\Http\Controllers\Backend\AdminHomeInformationController;
 /*
@@ -17,10 +18,12 @@ use App\Http\Controllers\Backend\AdminHomeInformationController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+// frontend 
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
+Route::get('/', [FrontendHomeController::class, 'homepage'])->name('frontend.homepage');
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
 
 Route::get('/dashboard', function () {
     return view('admin.index');
