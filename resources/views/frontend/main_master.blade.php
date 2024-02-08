@@ -43,9 +43,7 @@
   @include('frontend.header')
   <!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  @include('frontend.homepage.home')
-  <!-- End Hero Section -->
+
 
   <main id="main" data-aos="fade" data-aos-delay="1500">
 
