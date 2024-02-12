@@ -12,7 +12,7 @@
             </a>
             </div>
             <div class="col-4">
-                <form action="{{ route('admin.blog.image') }}" method="get">
+                <form action="{{ route('admin.service.index') }}" method="get">
                     <input type="text" name="search" id="search" value="{{ @request('search') }}" class="form-control">
                     <button type="submit" id="search" class="btn btn-primary mr-2"> Search</button>
                 </form>
@@ -55,11 +55,11 @@
                     <td> 
                     @if(@$item->status == 1)
                         <div class="badge badge-outline-success">
-                            <a href="{{ route('admin.blog.image.inactive', @$item->id) }}">Active</a>
+                            <a href="{{ route('admin.service.inactive', @$item->id) }}">Active</a>
                         </div>
                     @else 
                         <div class="badge badge-outline-danger">
-                            <a href="{{ route('admin.blog.image.active', @$item->id) }}">Inactive</a>
+                            <a href="{{ route('admin.service.active', @$item->id) }}">Inactive</a>
                         </div>
                     @endif
                        

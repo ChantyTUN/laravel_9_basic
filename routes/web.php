@@ -86,10 +86,10 @@ Route::controller(AdminServiceController::class)->group(function (){
     Route::post('/admin/service-store','store')->name('admin.service.store');
 
     Route::get('/admin/service-edit/{id}','editService')->name('admin.service.edit');
-    // Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
+    Route::post('/admin/service-update','updateService')->name('admin.service.update');
 
-    // Route::get('/admin/blog-images-inactive/{id}','blogInactive')->name('admin.blog.image.inactive');
-    // Route::get('/admin/blog-images-active/{id}','blogactive')->name('admin.blog.image.active');
+    Route::get('/admin/service-inactive/{id}','serviceInactive')->name('admin.service.inactive');
+    Route::get('/admin/service-active/{id}','serviceActive')->name('admin.service.active');
 
     
     // Route::get('/admin/blog-images-detail-edit/{id}','editBlogImageDetail')->name('admin.blog.detail');
