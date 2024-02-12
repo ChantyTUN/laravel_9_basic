@@ -23,4 +23,8 @@ class FrontendHomeController extends Controller
         // $blog = '';
         return view('frontend.blog_detail', compact('blog','blogDetail'));
     }
+
+    public function service(Request $request){
+        return view('frontend.service.index');
+    }
 }
