@@ -21,4 +21,31 @@ class AdminServiceController extends Controller
         //  dd($data);
         return view('admin.service.index', compact('data'));
     }
+
+    public function create(){
+        return view('admin.service.create');
+    }
+
+    public function store(Request $request){
+
+        $dataObj = new Service;
+        $dataObj->title = @$request->title;
+        $dataObj->icon = @$request->icon;
+        $dataObj->des = @$request->des;
+        $dataObj->status = 1;
+
+        $dataObj->save();
+          // message 
+        $notification = array(
+            'message' => 'Data has been save!',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.service.create')->with($notification);
+    }
+
+    public function editService($id){
+        $data = Service::find($id);
+        // dd($data);
+        return view('admin.service.edit', compact("data"));
+    }
 }

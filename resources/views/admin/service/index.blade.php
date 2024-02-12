@@ -7,7 +7,7 @@
         <h4 class="card-title">List Services</h4>
         <div class="row">
             <div class="col-4">
-            <a href="{{ route('admin.blog.image.create') }}" class="btn btn-outline-primary btn-icon-text">
+            <a href="{{ route('admin.service.create') }}" class="btn btn-outline-primary btn-icon-text">
                     <i class="mdi mdi-file-check btn-icon-prepend"></i> Create New Services 
             </a>
             </div>
@@ -51,7 +51,6 @@
                     </td>
                     <td> 
                         <i class="{{ @$item->icon }}"></i>
-                        <i class="bi bi-2-circle-fill"></i>
                     </td>
                     <td> 
                     @if(@$item->status == 1)
@@ -67,7 +66,7 @@
                     </td>
                     <td>
                       
-                    <a href="{{ route('admin.blog.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
+                    <a href="{{ route('admin.service.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
                         Edit <i class="mdi mdi-file-check btn-icon-append"></i>
                     </a>
 

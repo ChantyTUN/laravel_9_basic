@@ -82,10 +82,10 @@ Route::controller(AdminBlogImageController::class)->group(function (){
 // Backend Service Page
 Route::controller(AdminServiceController::class)->group(function (){
     Route::get('/admin/service','index')->name('admin.service.index');
-    // Route::get('/admin/blog-images-create','create')->name('admin.blog.image.create');
-    // Route::post('/admin/blog-images-store','store')->name('admin.blog.image.store');
+    Route::get('/admin/service-create','create')->name('admin.service.create');
+    Route::post('/admin/service-store','store')->name('admin.service.store');
 
-    // Route::get('/admin/blog-images-edit/{id}','editBlogImage')->name('admin.blog.edit');
+    Route::get('/admin/service-edit/{id}','editService')->name('admin.service.edit');
     // Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
 
     // Route::get('/admin/blog-images-inactive/{id}','blogInactive')->name('admin.blog.image.inactive');
