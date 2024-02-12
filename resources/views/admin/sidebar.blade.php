@@ -115,4 +115,15 @@
             <span class="menu-title">Blog Image Page</span>
         </a>
     </li>
+
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('admin.service.index')}}">
+            <span class="menu-icon">
+            <i class="mdi mdi-apps"></i>
+            </span>
+            <span class="menu-title">Service Page</span>
+        </a>
+    </li>
+
+    
 </ul>
