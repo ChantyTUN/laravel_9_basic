@@ -23,14 +23,15 @@
   <div class="container">
 
     <div class="row gy-4">
-
-      <div class="col-xl-3 col-md-6 d-flex">
-        <div class="service-item position-relative">
-          <i class="bi bi-activity"></i>
-          <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-          <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-        </div>
-      </div><!-- End Service Item -->
+        @foreach($services as $item)
+        <div class="col-xl-3 col-md-6 d-flex">
+            <div class="service-item position-relative">
+            <i class="{{ @$item->icon }}"></i>
+            <h4><a href="" class="stretched-link">{{ @$item->title }}</a></h4>
+            <p>{!! @$item->des !!}</p>
+            </div>
+        </div><!-- End Service Item -->
+        @endforeach
 
     </div>
 

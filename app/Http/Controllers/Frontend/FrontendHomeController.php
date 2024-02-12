@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Service;
 use App\Models\BlogImage;
 use App\Models\BlogImageDes;
 use Illuminate\Http\Request;
@@ -25,6 +26,8 @@ class FrontendHomeController extends Controller
     }
 
     public function service(Request $request){
-        return view('frontend.service.index');
+        $services = Service::where('status',1)->get();
+        // dd($dataHome);
+        return view('frontend.service.index', compact("services"));
     }
 }
