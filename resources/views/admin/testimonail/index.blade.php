@@ -4,11 +4,11 @@
     <div class="col-12 grid-margin">
     <div class="card">
         <div class="card-body">
-        <h4 class="card-title">List Blog Image</h4>
+        <h4 class="card-title">List Testimonail</h4>
         <div class="row">
             <div class="col-4">
-            <a href="{{ route('admin.blog.image.create') }}" class="btn btn-outline-primary btn-icon-text">
-                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Create New Blog Image 
+            <a href="{{ route('admin.testimonail.create') }}" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Create New Testimonail
             </a>
             </div>
             <div class="col-4">

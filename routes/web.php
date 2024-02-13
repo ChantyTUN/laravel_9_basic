@@ -104,8 +104,8 @@ Route::controller(AdminServiceController::class)->group(function (){
 // Backend Testimonail Page
 Route::controller(AdminTestimonnailsController::class)->group(function (){
     Route::get('/admin/testimonail','index')->name('admin.testimonail.index');
-    // Route::get('/admin/blog-images-create','create')->name('admin.blog.image.create');
-    // Route::post('/admin/blog-images-store','store')->name('admin.blog.image.store');
+    Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
+    Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
 
     // Route::get('/admin/blog-images-edit/{id}','editBlogImage')->name('admin.blog.edit');
     // Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
