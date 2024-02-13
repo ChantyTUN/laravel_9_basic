@@ -125,5 +125,14 @@
         </a>
     </li>
 
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('admin.testimonail.index')}}">
+            <span class="menu-icon">
+            <i class="mdi mdi-apps"></i>
+            </span>
+            <span class="menu-title">Testimonail Page</span>
+        </a>
+    </li>
+
     
 </ul>

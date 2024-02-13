@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\AdminServiceController;
 use App\Http\Controllers\Frontend\FrontendHomeController;
 use App\Http\Controllers\Backend\AdminBlogImageController;
+use App\Http\Controllers\Backend\AdminTestimonnailsController;
 use App\Http\Controllers\Backend\AdminHomeInformationController;
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +100,29 @@ Route::controller(AdminServiceController::class)->group(function (){
    
     // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
 });
+
+// Backend Testimonail Page
+Route::controller(AdminTestimonnailsController::class)->group(function (){
+    Route::get('/admin/testimonail','index')->name('admin.testimonail.index');
+    // Route::get('/admin/blog-images-create','create')->name('admin.blog.image.create');
+    // Route::post('/admin/blog-images-store','store')->name('admin.blog.image.store');
+
+    // Route::get('/admin/blog-images-edit/{id}','editBlogImage')->name('admin.blog.edit');
+    // Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
+
+    // Route::get('/admin/blog-images-inactive/{id}','blogInactive')->name('admin.blog.image.inactive');
+    // Route::get('/admin/blog-images-active/{id}','blogactive')->name('admin.blog.image.active');
+
+    
+    // Route::get('/admin/blog-images-detail-edit/{id}','editBlogImageDetail')->name('admin.blog.detail');
+    // Route::post('/admin/blog-images--detail-update','updateBlogImageDetail')->name('admin.update.blog.detail');
+
+   
+    // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
+});
+
+
+
 
 // Backend Footer 
 Route::controller(FooterController::class)->group(function (){
