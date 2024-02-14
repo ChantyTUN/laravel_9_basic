@@ -107,18 +107,11 @@ Route::controller(AdminTestimonnailsController::class)->group(function (){
     Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
     Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
 
-    // Route::get('/admin/blog-images-edit/{id}','editBlogImage')->name('admin.blog.edit');
-    // Route::post('/admin/blog-images-update','updateBlogImage')->name('admin.update.blog.image');
+    Route::get('/admin/testimonail-edit/{id}','edittestimonail')->name('admin.testimonail.edit');
+    Route::post('/admin/testimonail-update','updatetestimonail')->name('admin.update.testimonail');
 
-    // Route::get('/admin/blog-images-inactive/{id}','blogInactive')->name('admin.blog.image.inactive');
-    // Route::get('/admin/blog-images-active/{id}','blogactive')->name('admin.blog.image.active');
-
-    
-    // Route::get('/admin/blog-images-detail-edit/{id}','editBlogImageDetail')->name('admin.blog.detail');
-    // Route::post('/admin/blog-images--detail-update','updateBlogImageDetail')->name('admin.update.blog.detail');
-
-   
-    // Route::post('/admin/store/home-page-information','store')->name('admin.store.home.page.information');
+    Route::get('/admin/testimonail-inactive/{id}','testimonailInactive')->name('admin.testimonail.inactive');
+    Route::get('/admin/testimonail-active/{id}','testimonailactive')->name('admin.testimonail.active');
 });
 
 

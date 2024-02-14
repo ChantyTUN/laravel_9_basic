@@ -57,23 +57,19 @@
                     <td> 
                     @if(@$item->status == 1)
                         <div class="badge badge-outline-success">
-                            <a href="{{ route('admin.blog.image.inactive', @$item->id) }}">Active</a>
+                            <a href="{{ route('admin.testimonail.inactive', @$item->id) }}">Active</a>
                         </div>
                     @else 
                         <div class="badge badge-outline-danger">
-                            <a href="{{ route('admin.blog.image.active', @$item->id) }}">Inactive</a>
+                            <a href="{{ route('admin.testimonail.active', @$item->id) }}">Inactive</a>
                         </div>
                     @endif
                        
                     </td>
                     <td>
                       
-                    <a href="{{ route('admin.blog.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
+                    <a href="{{ route('admin.testimonail.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
                         Edit <i class="mdi mdi-file-check btn-icon-append"></i>
-                    </a>
-
-                    <a href="{{ route('admin.blog.detail',@$item->id) }}" class="btn btn-outline-primary btn-icon-text"> 
-                        View <i class="mdi mdi-eye-check btn-icon-append"></i>
                     </a>
 
                     </td>

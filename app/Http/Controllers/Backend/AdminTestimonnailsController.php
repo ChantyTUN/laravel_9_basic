@@ -58,5 +58,68 @@ class AdminTestimonnailsController extends Controller
 
     }
 
+    public function edittestimonail($id){
+        $data = Testimonail::find($id);
+        // dd($data);
+        return view('admin.testimonail.edit', compact("data"));
+    }
+
+    public function updatetestimonail(Request $request){
+        $id_test = $request->id;
+
+        $data = Testimonail::find($id_test);
+
+        $data->name = @$request->name;
+        $data->rate = @$request->rate;
+        $data->position = @$request->position;
+        $data->dec = @$request->dec;
+        
+        // Have been image
+        if($request->file('image')){
+            
+            $file = $request->file('image');
+
+            $get_image = $request->file('image');
+            $name_gen = hexdec(uniqid()).'.'.$get_image->getClientOriginalExtension(); // 1221343.jpg
+
+            Image::make($get_image)->resize(400,400)->save('upload/testimonail/'.$name_gen);
+            $save_url = 'upload/testimonail/'.$name_gen;
+            $data['image'] = $save_url;
+        }
+        $data->save();
+
+        $notification = array(
+            'message' => 'Data has been update!',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('admin.testimonail.index')->with($notification);
+
+    }
+
+
+     // Inactive
+     public function testimonailInactive($id){
+        Testimonail::findOrFail($id)->update([
+            'status' => 0
+        ]);
+        $notification = array(
+            'message' => 'Data has been disabled!',
+            'alert-type' => 'warning'
+        );
+        return redirect()->route('admin.testimonail.index')->with($notification);
+    }
+     // Active
+     public function testimonailactive($id){
+        Testimonail::findOrFail($id)->update([
+            'status' => 1
+        ]);
+        $notification = array(
+            'message' => 'Data has been Active!',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('admin.testimonail.index')->with($notification);
+    }
+
 
 }
