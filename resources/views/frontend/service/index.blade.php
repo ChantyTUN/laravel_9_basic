@@ -103,41 +103,32 @@
       <p>What they are saying</p>
     </div>
 
+@php 
+  $test_data = App\Models\Testimonail::where('status',1)->get();
+  //dd($test_data);
+@endphp
     <div class="slides-3 swiper">
       <div class="swiper-wrapper">
 
+        @foreach(@$test_data as $item)
         <div class="swiper-slide">
           <div class="testimonial-item">
             <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+              @for($i = 1 ; $i <= $item->rate ; $i++)
+                <i class="bi bi-star-fill"></i>
+              @endfor
             </div>
             <p>
-              Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+              {{ @$item->dec }}
             </p>
             <div class="profile mt-auto">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
+              <img src="{{ asset( @$item->image) }}" class="testimonial-img" alt="">
+              <h3>{{ @$item->name }}</h3>
+              <h4>{{ @$item->position }}</h4>
             </div>
           </div>
         </div><!-- End testimonial item -->
-
-        <div class="swiper-slide">
-          <div class="testimonial-item">
-            <div class="stars">
-              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-            </div>
-            <p>
-              Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-            </p>
-            <div class="profile mt-auto">
-              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-              <h3>John Larson</h3>
-              <h4>Entrepreneur</h4>
-            </div>
-          </div>
-        </div><!-- End testimonial item -->
-
+        @endforeach
       </div>
       <div class="swiper-pagination"></div>
     </div>
