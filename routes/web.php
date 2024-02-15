@@ -27,6 +27,8 @@ use App\Http\Controllers\Backend\AdminHomeInformationController;
 Route::get('/', [FrontendHomeController::class, 'homepage'])->name('frontend.homepage');
 Route::get('/frontend/blog-detail/{id}-{slug}', [FrontendHomeController::class, 'blogdetail']);
 Route::get('/frontend/services', [FrontendHomeController::class, 'service'])->name('frontend.service');
+Route::get('/frontend/contact', [FrontendHomeController::class, 'contact'])->name('frontend.contact');
+Route::post('/frontend/contact/store', [FrontendHomeController::class, 'contactStore'])->name('frontend.contact.store');
 
 
 Route::get('/dashboard', function () {

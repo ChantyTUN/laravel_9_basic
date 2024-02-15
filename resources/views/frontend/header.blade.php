@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li><a href="{{ route('frontend.service') }}">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{{ route('frontend.contact') }}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Message;
 use App\Models\Service;
 use App\Models\BlogImage;
 use App\Models\BlogImageDes;
@@ -29,5 +30,32 @@ class FrontendHomeController extends Controller
         $services = Service::where('status',1)->get();
         // dd($dataHome);
         return view('frontend.service.index', compact("services"));
+    }
+
+    public function contact(){
+        return view("frontend.contact.index");
+    }
+
+    public function contactStore(Request $request){
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|string',
+            'subject' => 'required|string',
+            'message' => 'required|string',
+
+            // 'name' => @$request->name,
+            // 'email' => @$request->email,
+            // 'subject' => @$request->subject,
+            // 'message' => @$request->message,
+        ]);
+
+        Message::create([
+            'name'      => @$request->name,
+            'email'     => @$request->email,
+            'subject'   => @$request->subject,
+            'message'   => @$request->message,
+            'status'    => 0,
+        ]);
+        return redirect()->route('frontend.contact')->with("success", "Message send successfully!");
     }
 }
