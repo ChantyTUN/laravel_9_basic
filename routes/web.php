@@ -117,9 +117,10 @@ Route::controller(AdminTestimonnailsController::class)->group(function (){
     Route::get('/admin/testimonail-active/{id}','testimonailactive')->name('admin.testimonail.active');
 });
 
-// Backend Testimonail Page
+// Backend Message Page
 Route::controller(AdminMessageController::class)->group(function (){
     Route::get('/admin/contact-message','index')->name('admin.contact.message');
+    Route::get('/admin/message-view/{id}','message_view')->name('admin.message_view');
     // Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
     // Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
 

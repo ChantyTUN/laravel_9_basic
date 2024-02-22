@@ -21,4 +21,20 @@ class AdminMessageController extends Controller
         //  dd($data);
         return view("admin.contact.message", compact("data"));
     }
+
+    public function message_view($id){
+        // read message
+        $read = Message::where('id',$id)->first();
+       
+        if($read->status == 0){
+            // dd($read->status);
+            Message::findOrFail($id)->update([
+                'status' => 1
+            ]);
+        }
+
+        $data = Message::find($id);
+        // dd($data);
+        return view('admin.contact.detail', compact("data"));
+    }
 }

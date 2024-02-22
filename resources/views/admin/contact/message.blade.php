@@ -44,18 +44,18 @@
                     <td> 
                     @if(@$item->status == 1)
                         <div class="badge badge-outline-success">
-                            <a href="{{ route('admin.testimonail.inactive', @$item->id) }}">Read</a>
+                            <a href="#">Read</a>
                         </div>
                     @else 
                         <div class="badge badge-outline-danger">
-                            <a href="{{ route('admin.testimonail.active', @$item->id) }}">Unread</a>
+                            <a href="#">Unread</a>
                         </div>
                     @endif
                        
                     </td>
                     <td>
                       
-                    <a href="{{ route('admin.testimonail.edit',@$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
+                    <a href="{{ route('admin.message_view', @$item->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
                         View <i class="mdi mdi-file-check btn-icon-append"></i>
                     </a>
 
