@@ -136,8 +136,8 @@ Route::controller(AdminMessageController::class)->group(function (){
 Route::controller(AdminCateogryController::class)->group(function (){
     Route::get('/admin/category','index')->name('admin.category.index');
     // Route::get('/admin/message-view/{id}','message_view')->name('admin.message_view');
-    // Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
-    // Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
+    Route::get('/admin/category-create','create')->name('admin.category.create');
+    Route::post('/admin/category-store','store')->name('admin.category.store');
 
     // Route::get('/admin/testimonail-edit/{id}','edittestimonail')->name('admin.testimonail.edit');
     // Route::post('/admin/testimonail-update','updatetestimonail')->name('admin.update.testimonail');
