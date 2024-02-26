@@ -139,6 +139,12 @@ Route::controller(AdminCateogryController::class)->group(function (){
     Route::get('/admin/category-create','create')->name('admin.category.create');
     Route::post('/admin/category-store','store')->name('admin.category.store');
 
+    Route::get('/admin/categories/{id}/edit','edit')->name('admin.category.edit');
+    Route::put('/admin/categories/{id}/update','update')->name('admin.category.update');
+
+
+// Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+// Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
     // Route::get('/admin/testimonail-edit/{id}','edittestimonail')->name('admin.testimonail.edit');
     // Route::post('/admin/testimonail-update','updatetestimonail')->name('admin.update.testimonail');
 

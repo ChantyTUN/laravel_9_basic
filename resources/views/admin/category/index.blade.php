@@ -74,7 +74,7 @@
 
                     <td>
                       
-                    <a href="#" class="btn btn-outline-secondary btn-icon-text"> 
+                    <a href="{{ route('admin.category.edit',$category->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
                         Edit <i class="mdi mdi-file-check btn-icon-append"></i>
                     </a>
 

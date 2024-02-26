@@ -41,4 +41,21 @@ class AdminCateogryController extends Controller
     
         return redirect()->route('admin.category.index')->with($notification);
     }
+
+    public function edit($id){
+        $category = Category::findOrFail($id);
+        // dd($category);
+        return view('admin.category.edit', compact('category'));
+    }
+
+    public function update(Request $request, $id){
+        $category = Category::findOrFail($id);
+        $category->update($request->all());
+        $notification = array(
+            'message' => 'Data has been updated!',
+            'alert-type' => 'info'
+        );
+    
+        return redirect()->route('admin.category.index')->with($notification);
+    }
 }
