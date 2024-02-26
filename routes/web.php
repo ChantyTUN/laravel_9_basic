@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\FooterController;
 use App\Http\Controllers\Backend\AdminMessageController;
 use App\Http\Controllers\Backend\AdminServiceController;
+use App\Http\Controllers\Backend\AdminCateogryController;
 use App\Http\Controllers\Frontend\FrontendHomeController;
 use App\Http\Controllers\Backend\AdminBlogImageController;
 use App\Http\Controllers\Backend\AdminTestimonnailsController;
@@ -121,6 +122,20 @@ Route::controller(AdminTestimonnailsController::class)->group(function (){
 Route::controller(AdminMessageController::class)->group(function (){
     Route::get('/admin/contact-message','index')->name('admin.contact.message');
     Route::get('/admin/message-view/{id}','message_view')->name('admin.message_view');
+    // Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
+    // Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
+
+    // Route::get('/admin/testimonail-edit/{id}','edittestimonail')->name('admin.testimonail.edit');
+    // Route::post('/admin/testimonail-update','updatetestimonail')->name('admin.update.testimonail');
+
+    // Route::get('/admin/testimonail-inactive/{id}','testimonailInactive')->name('admin.testimonail.inactive');
+    // Route::get('/admin/testimonail-active/{id}','testimonailactive')->name('admin.testimonail.active');
+});
+
+// Backend Category Page
+Route::controller(AdminCateogryController::class)->group(function (){
+    Route::get('/admin/category','index')->name('admin.category.index');
+    // Route::get('/admin/message-view/{id}','message_view')->name('admin.message_view');
     // Route::get('/admin/testimonail-create','create')->name('admin.testimonail.create');
     // Route::post('/admin/testimonail-store','store')->name('admin.testimonail.store');
 
