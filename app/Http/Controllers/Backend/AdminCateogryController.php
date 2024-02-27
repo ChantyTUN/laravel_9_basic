@@ -58,4 +58,13 @@ class AdminCateogryController extends Controller
     
         return redirect()->route('admin.category.index')->with($notification);
     }
+
+    ///////////////// category detail /////////////////
+    public function index_detail(){
+        return view("admin.category.detail.index");
+    }
+
+    public function create_detail(){
+        return view("admin.category.detail.create");
+    }
 }

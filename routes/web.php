@@ -142,14 +142,10 @@ Route::controller(AdminCateogryController::class)->group(function (){
     Route::get('/admin/categories/{id}/edit','edit')->name('admin.category.edit');
     Route::put('/admin/categories/{id}/update','update')->name('admin.category.update');
 
+    // category detail
+    Route::get('/admin/category-detail','index_detail')->name('admin.category_detail.index');
+    Route::get('/admin/category--detail-create','create_detail')->name('admin.category_detail.create');
 
-// Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
-// Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');
-    // Route::get('/admin/testimonail-edit/{id}','edittestimonail')->name('admin.testimonail.edit');
-    // Route::post('/admin/testimonail-update','updatetestimonail')->name('admin.update.testimonail');
-
-    // Route::get('/admin/testimonail-inactive/{id}','testimonailInactive')->name('admin.testimonail.inactive');
-    // Route::get('/admin/testimonail-active/{id}','testimonailactive')->name('admin.testimonail.active');
 });
 
 
