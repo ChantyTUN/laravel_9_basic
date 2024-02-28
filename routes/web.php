@@ -142,6 +142,7 @@ Route::controller(AdminCateogryController::class)->group(function (){
     Route::get('/admin/categories/{id}/edit','edit')->name('admin.category.edit');
     Route::put('/admin/categories/{id}/update','update')->name('admin.category.update');
 
+    Route::post('/admin/category--detail-store','storeDetail')->name('admin.category_detail.store');
 
 // Route::get('/categories/{id}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
 // Route::put('/categories/{id}', [CategoryController::class, 'update'])->name('categories.update');

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend;
 use Auth;
 use Carbon\Carbon;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\CategoryDetail;
 use App\Http\Controllers\Controller;
 
 class AdminCateogryController extends Controller
@@ -53,6 +55,32 @@ class AdminCateogryController extends Controller
         $category->update($request->all());
         $notification = array(
             'message' => 'Data has been updated!',
+            'alert-type' => 'info'
+        );
+    
+        return redirect()->route('admin.category.index')->with($notification);
+    }
+
+    public function storeDetail(Request $request){
+
+        $validatedData = $request->validate([
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // adjust validation rules as per your needs
+        ]);
+    
+        $cate_id = @$request->category_id;
+        // dd($cate_id);
+        foreach ($request->file('images') as $image) {
+            $imageName = Str::uuid() . '_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $imageName);
+    
+            CategoryDetail::create([
+                'category_id' => @$cate_id,
+                'image' => 'images/' . $imageName, // Assuming 'images' is a folder within the public directory
+            ]);
+        }
+
+        $notification = array(
+            'message' => 'Data has been save!',
             'alert-type' => 'info'
         );
     

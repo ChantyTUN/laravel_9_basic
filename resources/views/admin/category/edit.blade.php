@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
 
-<h1>Edit Category</h1>
+    <h1>Edit Category</h1>
     <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
         @csrf
         @method('PUT')
@@ -23,5 +23,21 @@
         <br>
         <button type="submit" class="btn btn-primary mr-2">Update Category</button>
     </form>
+
+    <br>
+    <hr>
+    
+    <div class="container">
+        <h2>>Add Category Detail</h2>
+        <form action="{{ route('admin.category_detail.store', $category->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <input type="hidden" name="category_id" id="category_id" value="{{ $category->id }}">
+                <label for="images">Images</label>
+                <input type="file" name="images[]" class="form-control" id="images" multiple>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
 
 @endsection
