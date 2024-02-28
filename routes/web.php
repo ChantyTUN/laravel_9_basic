@@ -145,6 +145,7 @@ Route::controller(AdminCateogryController::class)->group(function (){
     // category detail
     Route::get('/admin/category-detail','index_detail')->name('admin.category_detail.index');
     Route::get('/admin/category--detail-create','create_detail')->name('admin.category_detail.create');
+    Route::post('/admin/category--detail-store','store_detail')->name('admin.category_detail.store');
 
 });
 

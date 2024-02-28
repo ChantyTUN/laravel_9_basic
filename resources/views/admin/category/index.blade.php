@@ -68,7 +68,7 @@
                     <td>
 
                     @foreach (@$category->details as $detail)
-                        <li>{{ @$detail->image }}</li>
+                        <li>{!! @$detail->image !!}</li>
                     @endforeach
                     </td>
 

@@ -6,6 +6,7 @@ use Auth;
 use Carbon\Carbon;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\CategoryDetail;
 use App\Http\Controllers\Controller;
 
 class AdminCateogryController extends Controller
@@ -65,6 +66,41 @@ class AdminCateogryController extends Controller
     }
 
     public function create_detail(){
-        return view("admin.category.detail.create");
+        $categories = Category::all();
+        return view("admin.category.detail.create", compact("categories"));
     }
+
+    public function store_detail(Request $request){
+        $request->validate([
+            'category_id' => 'required|exists:categories,id', // Validate that the selected category exists in the categories table
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Assuming 2048KB (2MB) is your maximum file size
+        ]);
+
+        $categoryDetail = new CategoryDetail();
+        $categoryDetail->category_id = $request->input('category_id');
+        
+        $imageNames = [];
+        if ($request->hasFile('images')) {
+            $imageName = [] ;
+            foreach ($request->file('images') as $image) {
+                // Upload each image
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $image->move(public_path('upload/category'), $imageName);
+                // Add image path to the array
+                $imageNames[] = $imageName;
+            }
+        }
+        // Save the array of image paths
+        $categoryDetail->images = $imageNames;
+        $categoryDetail->save();
+
+        $notification = array(
+            'message' => 'Data has been updated!',
+            'alert-type' => 'info'
+        );
+    
+        return redirect()->route('admin.category.index')->with($notification);
+    }
+
+
 }
