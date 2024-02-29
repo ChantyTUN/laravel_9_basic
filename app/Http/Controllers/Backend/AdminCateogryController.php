@@ -53,8 +53,9 @@ class AdminCateogryController extends Controller
 
     public function edit($id){
         $category = Category::findOrFail($id);
-        // dd($category);
-        return view('admin.category.edit', compact('category'));
+        $categoryDetail = CategoryDetail::where('category_id',$id)->get();
+        // dd($categoryDetail);
+        return view('admin.category.edit', compact('category','categoryDetail'));
     }
 
     public function update(Request $request, $id){
@@ -75,16 +76,25 @@ class AdminCateogryController extends Controller
         ]);
     
         $cate_id = @$request->category_id;
-        // dd($cate_id);
-        foreach ($request->file('images') as $image) {
-            $imageName = Str::uuid() . '_' . time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-    
-            CategoryDetail::create([
-                'category_id' => @$cate_id,
-                'image' => 'images/' . $imageName, // Assuming 'images' is a folder within the public directory
-                'created_by' => Auth::id()
-            ]);
+        if($request->has("images")){
+            foreach ($request->file('images') as $image) {
+                $imageName = Str::uuid() . '_' . time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $imageName);
+        
+                CategoryDetail::create([
+                    'category_id' => @$cate_id,
+                    'image' => 'images/' . $imageName, // Assuming 'images' is a folder within the public directory
+                    'created_by' => Auth::id()
+                ]);
+            }
+        }
+
+        if($request->has("old_image_id")){
+            // dd($request->all());
+            foreach($request->old_image_id as $id){
+                $deleted= CategoryDetail::where("id",$id)->first();
+                $deleted->delete();
+            }
         }
 
         $notification = array(

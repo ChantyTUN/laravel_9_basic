@@ -36,6 +36,22 @@
                 <label for="images">Images</label>
                 <input type="file" name="images[]" class="form-control" id="images" multiple>
             </div>
+
+            <br>
+            
+
+            <div class="form-group">
+                <label for="images">Old Images</label>
+                @foreach (@$categoryDetail as $item)
+                        <li>
+                            <input type="checkbox" name="old_image_id[]" id="old_image_id" value="{{ @$item->id }}">
+                            <img src="{{ asset(@$item->image) }}" alt="" width="60px;" height="60px;" srcset="">
+                        </li>
+                        <br>
+                    @endforeach
+            </div>
+
+
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
     </div>
