@@ -1,6 +1,7 @@
 <!-- php block  -->
 @php 
     $footerSocial = App\Models\Footer::find(1);
+    $categories =  App\Models\Category::where('status',1)->get();
 @endphp 
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid d-flex align-items-center justify-content-between">
@@ -16,21 +17,17 @@
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <li class="dropdown">
+            <a href="#"><span>Gallery</span> 
+              <i class="bi bi-chevron-down dropdown-indicator"></i>
+            </a>
             <ul>
-              <li><a href="gallery.html">Nature</a></li>
-              <li><a href="gallery.html">People</a></li>
-              <li><a href="gallery.html">Architecture</a></li>
-              <li><a href="gallery.html">Animals</a></li>
-              <li><a href="gallery.html">Sports</a></li>
-              <li><a href="gallery.html">Travel</a></li>
-              <li class="dropdown"><a href="#"><span>Sub Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                </ul>
+              @foreach(@$categories as $item)
+              <li>
+                <a href="gallery.html">{{ @$item->category }}</a>
               </li>
+              @endforeach
+              
             </ul>
           </li>
           <li><a href="{{ route('frontend.service') }}">Services</a></li>
