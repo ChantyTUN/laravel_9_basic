@@ -12,8 +12,15 @@ use App\Http\Controllers\Controller;
 
 class AdminCateogryController extends Controller
 {
-    public function index(){
-        $categories = Category::orderBy('id','desc')->paginate(15);;
+    public function index(Request $request){
+         $query = Category::query();
+         // if have search value
+         if(@$request->search){
+             $queryString = $request->search;
+             $query->where('category', 'LIKE', "%$queryString%");
+         }
+         $categories = $query->orderBy('id','desc')->paginate(15);
+       //   dd($data);
         return view("admin.category.index", compact("categories"));
     }
 
@@ -76,6 +83,7 @@ class AdminCateogryController extends Controller
             CategoryDetail::create([
                 'category_id' => @$cate_id,
                 'image' => 'images/' . $imageName, // Assuming 'images' is a folder within the public directory
+                'created_by' => Auth::id()
             ]);
         }
 

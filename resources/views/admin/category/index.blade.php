@@ -12,7 +12,7 @@
             </a>
             </div>
             <div class="col-4">
-                <form action="{{ route('admin.testimonail.index') }}" method="get">
+                <form action="{{ route('admin.category.index') }}" method="get">
                     <input type="text" name="search" id="search" value="{{ @request('search') }}" class="form-control">
                     <button type="submit" id="search" class="btn btn-primary mr-2"> Search</button>
                 </form>
@@ -68,7 +68,10 @@
                     <td>
 
                     @foreach (@$category->details as $detail)
-                        <li>{{ @$detail->image }}</li>
+                        <li>
+                            <img src="{{ asset(@$detail->image) }}" alt="" width="60px;" height="60px;" srcset="">
+                        </li>
+                        <br>
                     @endforeach
                     </td>
 
