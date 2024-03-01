@@ -31,6 +31,8 @@ Route::get('/frontend/blog-detail/{id}-{slug}', [FrontendHomeController::class, 
 Route::get('/frontend/services', [FrontendHomeController::class, 'service'])->name('frontend.service');
 Route::get('/frontend/contact', [FrontendHomeController::class, 'contact'])->name('frontend.contact');
 Route::post('/frontend/contact/store', [FrontendHomeController::class, 'contactStore'])->name('frontend.contact.store');
+Route::get('/frontend/category/{id}', [FrontendHomeController::class, 'getCategory'])->name('frontend.category');
+
 
 
 Route::get('/dashboard', function () {

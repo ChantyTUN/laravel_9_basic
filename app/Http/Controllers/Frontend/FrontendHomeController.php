@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Models\Message;
 use App\Models\Service;
+use App\Models\Category;
 use App\Models\BlogImage;
 use App\Models\BlogImageDes;
 use Illuminate\Http\Request;
+use App\Models\CategoryDetail;
 use App\Http\Controllers\Controller;
 
 class FrontendHomeController extends Controller
@@ -57,5 +59,16 @@ class FrontendHomeController extends Controller
             'status'    => 0,
         ]);
         return redirect()->route('frontend.contact')->with("success", "Message send successfully!");
+    }
+
+    public function getCategory(Request $request, $id){
+
+        // $id = $request->id;
+        $category = Category::where('id',$request->id)->where('status',1)->first();
+        $categoryDetail = CategoryDetail::where('category_id',$request->id)->get();
+        $countItem = CategoryDetail::where('category_id',$request->id)->count();
+// dd($countItem);
+        return view("frontend.category.index", compact("category","categoryDetail","countItem"));
+       
     }
 }

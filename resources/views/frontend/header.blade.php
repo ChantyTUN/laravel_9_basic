@@ -24,7 +24,7 @@
             <ul>
               @foreach(@$categories as $item)
               <li>
-                <a href="gallery.html">{{ @$item->category }}</a>
+                <a href="{{ route('frontend.category',$item->id) }}">{{ @$item->category }}</a>
               </li>
               @endforeach
               
