@@ -61,4 +61,41 @@ class AdminUserController extends Controller
     
         return redirect()->route('admin.user')->with($notification);
     }
+
+    public function edit($id){
+        $data = User::find($id);
+        // dd($data);
+        return view('admin.users.edit', compact("data"));
+    }
+
+    public function update(Request $request){
+        $id_user = $request->id;
+
+        $data = User::find($id_user);
+
+        $data->name = @$request->name;
+        $data->username = @$request->username;
+        $data->email = @$request->email;
+        
+        // Have been image
+        if($request->file('profile_image')){
+            $image = $request->file('profile_image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('backend/upload/admin_images'), $imageName);
+            $profileImagePath = 'backend/upload/admin_images/' . $imageName;
+            $data['profile_image'] = $profileImagePath;
+        }
+
+        if($request->password){
+            $data['password'] = Hash::make($request->password);;
+        }
+        $data->save();
+
+        $notification = array(
+            'message' => 'Data has been update!',
+            'alert-type' => 'info'
+        );
+        return redirect()->route('admin.user')->with($notification);
+
+    }
 }

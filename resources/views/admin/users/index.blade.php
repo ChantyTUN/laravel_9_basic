@@ -50,7 +50,11 @@
                     </td>
                     <td> {{ @$user->name }} </td>
                     <td> {{ @$user->username }} </td>
-                    <td>Edit</td>
+                    <td>
+                    <a href="{{ route('admin.user.edit',@$user->id) }}" class="btn btn-outline-secondary btn-icon-text"> 
+                        Edit <i class="mdi mdi-file-check btn-icon-append"></i>
+                    </a>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
