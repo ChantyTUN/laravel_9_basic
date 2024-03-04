@@ -152,5 +152,14 @@
         </a>
     </li>
 
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('admin.user')}}">
+            <span class="menu-icon">
+            <i class="mdi mdi-apps"></i>
+            </span>
+            <span class="menu-title">User List</span>
+        </a>
+    </li>
+
     
 </ul>

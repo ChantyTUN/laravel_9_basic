@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Demo\DemoController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\FooterController;
+use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\AdminMessageController;
 use App\Http\Controllers\Backend\AdminServiceController;
 use App\Http\Controllers\Backend\AdminCateogryController;
@@ -162,6 +163,14 @@ Route::controller(FooterController::class)->group(function (){
     Route::get('/admin/footer','index')->name('admin.footer');
     Route::post('/admin/store/footer','store')->name('admin.store.footer');
 });
+
+// Backend Footer 
+Route::controller(AdminUserController::class)->group(function (){
+    Route::get('/admin/user','index')->name('admin.user');
+    // Route::post('/admin/store/footer','store')->name('admin.store.footer');
+});
+
+
 
 
 
