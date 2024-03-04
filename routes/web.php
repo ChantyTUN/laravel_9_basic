@@ -167,6 +167,9 @@ Route::controller(FooterController::class)->group(function (){
 // Backend Footer 
 Route::controller(AdminUserController::class)->group(function (){
     Route::get('/admin/user','index')->name('admin.user');
+    Route::get('/admin/user/create','create')->name('admin.user.create');
+    Route::post('/admin/user/store','store')->name('admin.user.store');
+    
     // Route::post('/admin/store/footer','store')->name('admin.store.footer');
 });
 

@@ -7,9 +7,8 @@
         <h4 class="card-title">Users List</h4>
         <div class="row">
             <div class="col-4">
-            <a href="{{ route('admin.testimonail.create') }}" class="btn btn-outline-primary btn-icon-text">
-                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Create New Testimonail
-            </a>
+            <a href="{{ route('admin.user.create') }}" class="btn btn-outline-primary btn-icon-text">
+                    <i class="mdi mdi-file-check btn-icon-prepend"></i> Create User </a>
             </div>
             <div class="col-4">
                 <form action="{{ route('admin.user') }}" method="get">
@@ -47,7 +46,7 @@
                         </div>
                     </td>
                     <td>
-                        <img src="{{ asset('backend/upload/admin_images/'.@$user->profile_image) }}" alt="image">
+                        <img src="{{ asset(@$user->profile_image) }}" alt="image">
                     </td>
                     <td> {{ @$user->name }} </td>
                     <td> {{ @$user->username }} </td>
